@@ -1,0 +1,10 @@
+---
+title: "eds212-day2-tasks"
+author: "Henry Oliver"
+format: html
+---
+
+# Find the slope of f(x) = x^2 at x = 3
+fx <- function(x) {x^2}
+
+#df_dx <- D(expr = expression(x^2))
