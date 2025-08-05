@@ -6,20 +6,52 @@ format: html
 
 # Find the slope of f(x) = x^2 at x = 3
 
-### Create the function
+### Create the expression
 
 ```{r}
 fx <- expression(x^2)
 ```
 
+### Find the derivative with respect to x
 
 ```{r}
 df_dx <- D(expr = fx, name = "x")
 df_dx
 ```
 
+### Find the slope at X = 3
+
 ```{r}
 x <- 3
 eval(df_dx)
+```
+
+##### Find the slope of P(a) = 2(3a+2)^4 - 5 at a = 1.2
+```{r}
+Pa <- expression(2*(3*a+2)^4 - 5)
+dP_da <- D(expr = Pa, name = "a")
+dP_da
+
+a <- 1.2
+eval(dP_da)
+
+```
+
+```{r}
+#install.package("tidyverse")
+#install.package("palmerpenguins")
+library(tidyverse)
+library(palmerpenguins)
+
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(color = species)) +
+   scale_color_manual(values = c("pink", "green4", "cyan4")) +
+   labs(x = "Bill Length (mm)",
+         y = "Bill Depth (mm)",
+         title = "Palmer penguin bill measurements",
+         subtitle = "Palmer Archipelago, Antarctica (2007 - 2009)",
+         caption = "Collected by Dr. Kristen Gorman and colleagues at Palmer Station LTER") +
+ facet_wrap(~island) +
+ theme_minimal()
 ```
 
